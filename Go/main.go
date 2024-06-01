@@ -20,8 +20,8 @@ func setupServer() *gin.Engine {
 
 	router := gin.Default()
 
-	router.GET("/books", auth, inDB.GetBooks)
-	router.GET("/books/:id", auth, inDB.GetBook)
+	router.GET("/books", inDB.GetBooks)
+	router.GET("/books/:id", inDB.GetBook)
 	router.PUT("/books/:id", auth, inDB.UpdateBook)
 	router.DELETE("/books/:id", auth, inDB.DeleteBook)
 	router.POST("/books", auth, inDB.CreateBook)
@@ -30,9 +30,10 @@ func setupServer() *gin.Engine {
 }
 func auth(c *gin.Context) {
 	token := c.Request.Header.Get("Authorization")
-
+	authPermission := make(map[string]bool)
+	authPermission["adminadmin"] = true
 	// if token.Valid && err == nil {
-	if token == "initestyasir" {
+	if authPermission[token] {
 		fmt.Println("token verified")
 	} else {
 		result := gin.H{
