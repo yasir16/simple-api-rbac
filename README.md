@@ -6,7 +6,9 @@
 
 # Available End Point
 
-for post, put , delete need auth
+for post, put , delete need auth in header
+
+```'Authorization: adminadmin'```
 
 ```[GET] /books```
 
