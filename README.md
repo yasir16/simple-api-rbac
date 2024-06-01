@@ -9,6 +9,7 @@
 for post, put , delete need auth
 
 ```[GET] /books```
+
 response 
 ```
 {
@@ -49,6 +50,7 @@ response
 ```
     
 ```[GET] /books/{id} ```
+
 response
 ```
 {
@@ -66,7 +68,11 @@ response
 }
 ```
 
+
+
+
 ```[POST] /books```
+
 request 
 ```
 {
@@ -76,6 +82,8 @@ request
     "publish_date": "2024-03-04"
 
 }
+```
+
 response 
 ```
 {
@@ -93,6 +101,7 @@ response
 ```
 
 ```[PUT] /books/{id}```
+
 request 
 ```
 {
@@ -103,6 +112,7 @@ request
 
 }
 ```
+
 response 
 ```
 {
@@ -121,6 +131,7 @@ response
 ```
 
 ```[DELETE] /books/{id}```
+
 response
 ```
 {
