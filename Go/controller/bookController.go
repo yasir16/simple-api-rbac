@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/yasir16/simpe-api-rbac/structs"
+	"github.com/yasir16/simple-api-rbac/structs"
 )
 
 // GetBooks is for get list book
@@ -14,7 +14,7 @@ func (idb *InDB) GetBooks(c *gin.Context) {
 		result gin.H
 	)
 
-	idb.DB.Find(&users)
+	idb.DB.Find(&books)
 	if len(books) <= 0 {
 		result = gin.H{
 			"result": nil,
@@ -99,10 +99,10 @@ func (idb *InDB) UpdateBook(c *gin.Context) {
 			"result": "data not found",
 		}
 	}
-	newBook.FullName = updateBook.FullName
-	newBook.Username = updateBook.Username
-	newBook.Phone = updateBook.Phone
-	newBook.Address = updateBook.Address
+	newBook.Title = updateBook.Title
+	newBook.Author = updateBook.Author
+	newBook.ISBN = updateBook.ISBN
+	newBook.PublishedDate = updateBook.PublishedDate
 	err = idb.DB.Model(&book).Updates(newBook).Error
 	if err != nil {
 		result = gin.H{
