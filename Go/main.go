@@ -21,10 +21,10 @@ func setupServer() *gin.Engine {
 	router := gin.Default()
 
 	router.GET("/books", auth, inDB.GetBooks)
-	router.GET("/books/:id", auth, inDB.GetUser)
-	router.PUT("/books/:id", auth, inDB.UpdateUser)
-	router.DELETE("/books/:id", auth, inDB.DeleteUser)
-	router.POST("/books", auth, inDB.CreateUser)
+	router.GET("/books/:id", auth, inDB.GetBook)
+	router.PUT("/books/:id", auth, inDB.UpdateBook)
+	router.DELETE("/books/:id", auth, inDB.DeleteBook)
+	router.POST("/books", auth, inDB.CreateBook)
 
 	return router
 }

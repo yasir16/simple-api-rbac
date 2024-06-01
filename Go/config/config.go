@@ -12,6 +12,6 @@ func DBInit() *gorm.DB {
 		panic(err)
 	}
 
-	db.AutoMigrate(structs.User{})
+	db.AutoMigrate(structs.Book{})
 	return db
 }
